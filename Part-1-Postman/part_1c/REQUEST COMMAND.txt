@@ -1,0 +1,4 @@
+GET https://virtserver.swaggerhub.com/sepulsa/RentABook-API/1.0.0/token
+POST https://virtserver.swaggerhub.com/sepulsa/RentABook-API/1.0.0/client
+PUT https://virtserver.swaggerhub.com/sepulsa/RentABook-API/1.0.0/book/1
+DELETE https://virtserver.swaggerhub.com/sepulsa/RentABook-API/1.0.0/book/1

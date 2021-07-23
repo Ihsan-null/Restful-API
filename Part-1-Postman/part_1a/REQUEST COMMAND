@@ -1,0 +1,9 @@
+GET https://newsapi.org/v2/everything?q=apple&from=2021-07-14&to=2021-07-14&sortBy=popularity&apiKey=eb1317930f86437a99d4047da4de7c13
+
+GET https://newsapi.org/v2/everything?q=tesla&from=2021-06-15&sortBy=publishedAt&apiKey=eb1317930f86437a99d4047da4de7c13
+
+GET https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=eb1317930f86437a99d4047da4de7c13
+
+GET https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=eb1317930f86437a99d4047da4de7c13
+
+GET https://newsapi.org/v2/everything?domains=wsj.com&apiKey=eb1317930f86437a99d4047da4de7c13

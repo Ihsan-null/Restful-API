@@ -1,0 +1,6 @@
+GET https://swapi.dev/api/films/
+GET people": "https://swapi.dev/api/people/
+GET planets": "https://swapi.dev/api/planets/
+GET species": "https://swapi.dev/api/species/
+GET starships": "https://swapi.dev/api/starships/
+GET vehicles": "https://swapi.dev/api/vehicles/
