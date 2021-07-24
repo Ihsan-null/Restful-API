@@ -2,7 +2,7 @@ package config
 
 import (
 	"os"
-	"part1/models"
+	"part2/models"
 	"strconv"
 
 	"gorm.io/driver/mysql"
@@ -31,5 +31,5 @@ func InitPort() {
 }
 
 func InitMigrate() {
-	DB.AutoMigrate(&models.User{})
+	DB.AutoMigrate(&models.Book{})
 }

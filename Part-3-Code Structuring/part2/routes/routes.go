@@ -7,9 +7,9 @@ import (
 )
 
 func New(e *echo.Echo) {
-	e.GET("/users", controllers.GetUsersControllers)
-	e.GET("/user/:id", controllers.GetUserController)
-	e.DELETE("/user/:id", controllers.DeleteUserController)
-	e.PUT("/users/:id", controllers.UpdateUserController)
-	e.POST("/users/:id", controllers.CreateUserController)
+	e.GET("/books", controllers.GetBooksControllers)
+	e.GET("/book/:id", controllers.GetBookController)
+	e.DELETE("/book/:id", controllers.DeleteBookController)
+	e.PUT("/books/:id", controllers.UpdateBookController)
+	e.POST("/books/:id", controllers.CreateBookController)
 }

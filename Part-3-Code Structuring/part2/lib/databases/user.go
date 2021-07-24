@@ -8,41 +8,41 @@ import (
 )
 
 func GetUsers() (interface{}, error) {
-	var users []models.User
-	if err := config.DB.Find(&users).Error; err != nil {
+	var books []models.Book
+	if err := config.DB.Find(&books).Error; err != nil {
 		return nil, err
 	}
-	return users, nil
+	return books, nil
 }
 
 func GetUser(id int) (interface{}, error) {
-	var user models.User
-	if err := config.DB.Find(&user, "id=?", id).Error; err != nil {
+	var book models.Book
+	if err := config.DB.Find(&book, "id=?", id).Error; err != nil {
 		return nil, err
 	}
-	return user, nil
+	return book, nil
 }
 
-func UpdateUser(id int, user interface{}) (interface{}, error) {
-	if err := config.DB.Find(&user, "id=?", id).Save(&user).Error; err != nil {
+func UpdateUser(id int, book interface{}) (interface{}, error) {
+	if err := config.DB.Find(&book, "id=?", id).Save(&book).Error; err != nil {
 		return nil, err
 	}
-	return user, nil
+	return book, nil
 }
 
 func DeleteUser(id int) (interface{}, error) {
-	var user models.User
-	if err := config.DB.Find(&user, "id=?", id).Delete(&user).Error; err != nil {
+	var book models.Book
+	if err := config.DB.Find(&book, "id=?", id).Delete(&book).Error; err != nil {
 		return nil, err
 	}
-	return user, nil
+	return book, nil
 }
 
 func CreateUser(c echo.Context) (interface{}, error) {
-	user := models.User{}
-	c.Bind(&user)
-	if err := config.DB.Save(&user).Error; err != nil {
+	book := models.Book{}
+	c.Bind(&book)
+	if err := config.DB.Save(&book).Error; err != nil {
 		return nil, err
 	}
-	return user, nil
+	return book, nil
 }

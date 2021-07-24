@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"part1/config"
-	"part1/routes"
+	"part2/config"
+	"part2/routes"
 
 	"github.com/labstack/echo"
 )

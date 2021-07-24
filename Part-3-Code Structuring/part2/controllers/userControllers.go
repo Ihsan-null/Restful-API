@@ -2,86 +2,86 @@ package controllers
 
 import (
 	"net/http"
-	"part1/lib/databases"
-	"part1/models"
+	"part2/lib/databases"
+	"part2/models"
 	"strconv"
 
 	"github.com/labstack/echo"
 )
 
-func GetUsersControllers(c echo.Context) error {
-	users, err := databases.GetUsers()
+func GetBooksControllers(c echo.Context) error {
+	books, err := databases.GetBooks()
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
 	return c.JSON(http.StatusOK, map[string]interface{}{
 		"status": "success",
-		"users":  users,
+		"users":  books,
 	})
 }
 
-func GetUserController(c echo.Context) error {
+func GetBookController(c echo.Context) error {
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
 		return c.JSON(http.StatusBadRequest, map[string]interface{}{
 			"message": "id invalid",
 		})
 	}
-	user, err := databases.GetUser(id)
+	book, err := databases.GetBook(id)
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
 	return c.JSON(http.StatusOK, map[string]interface{}{
 		"message": "alhamdulillah",
-		"user":    user,
+		"user":    book,
 	})
 
 }
 
-func DeleteUserController(c echo.Context) error {
+func DeleteBookController(c echo.Context) error {
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
 		return c.JSON(http.StatusBadRequest, map[string]interface{}{
 			"message": "Id invalid",
 		})
 	}
-	userId, err := databases.DeleteUser(id)
+	bookId, err := databases.DeleteBook(id)
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
 	return c.JSON(http.StatusOK, map[string]interface{}{
 		"message": "Data has been DELETED",
-		"user":    userId,
+		"user":    bookId,
 	})
 }
 
-func CreateUserController(c echo.Context) error {
-	user, err := databases.CreateUser(c)
+func CreateBookController(c echo.Context) error {
+	book, err := databases.CreateBook(c)
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
 	return c.JSON(http.StatusOK, map[string]interface{}{
 		"status": "success",
-		"users":  user,
+		"users":  book,
 	})
 }
 
-func UpdateUserController(c echo.Context) error {
-	var user models.User
+func UpdateBookController(c echo.Context) error {
+	var book models.Book
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
 		return c.JSON(http.StatusBadRequest, map[string]interface{}{
 			"message": "invalid id",
 		})
 	}
-	c.Bind(&user)
-	update_user, err := databases.UpdateUser(id, user)
+	c.Bind(&book)
+	update_book, err := databases.UpdateUser(id, book)
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
 
 	return c.JSON(http.StatusOK, map[string]interface{}{
 		"message": "success",
-		"data":    update_user,
+		"data":    update_book,
 	})
 }
